@@ -187,6 +187,7 @@ public class Controller {
         System.out.println(oo.value);
         System.out.println("--------------");
         System.out.println(control.returnTotal(playerHand));
+        System.out.println(control.returnTotal(dealerHand));
     }
 
 }
