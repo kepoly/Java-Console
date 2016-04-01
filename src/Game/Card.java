@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tester;
+package Game;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 
 /**
@@ -56,8 +58,8 @@ public class Card {
         this.suit = suit;
     } 
     
-    public Deque returnCard() {
-        Deque<Card> card = new ArrayDeque<>();
+    public List returnCard() {
+        List<Card> card = new ArrayList<>();
         card.add(new Card(getValue(), getSuit()));
         return card;
     }

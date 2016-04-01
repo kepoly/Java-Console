@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tester;
+package Game;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 /**
  *
@@ -14,10 +16,10 @@ import java.util.Deque;
  */
 public class Deck {
     
-    private Deque<Card> clubs = new ArrayDeque<>();
-    private Deque<Card> diamonds = new ArrayDeque<>();
-    private Deque<Card> hearts = new ArrayDeque<>();
-    private Deque<Card> spades = new ArrayDeque<>();
+    private List<Card> clubs = new ArrayList<>();
+    private List<Card> diamonds = new ArrayList<>();
+    private List<Card> hearts = new ArrayList<>();
+    private List<Card> spades = new ArrayList<>();
     
     Deck() {
         this.clubs = new Suit("Clubs").buildSuits();
@@ -27,8 +29,8 @@ public class Deck {
     }
 
     
-    public Deque getNewDeck() {
-        Deque<Card> deck = new ArrayDeque<>();
+    public List getNewDeck() {
+        List<Card> deck = new ArrayList<>();
         deck.addAll(clubs);
         deck.addAll(diamonds);
         deck.addAll(hearts);

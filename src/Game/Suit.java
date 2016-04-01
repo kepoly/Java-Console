@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tester;
+package Game;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 /**
  *
@@ -21,8 +23,8 @@ public class Suit {
         this.suitName = inSuitName;
     }
     
-    public Deque buildSuits() {
-        Deque<Card> cards = new ArrayDeque<>();
+    public List buildSuits() {
+        List<Card> cards = new ArrayList<>();
         for(int i = 0; i <= 9; i++) {
             String card = Integer.toString(i + 2);
             cards.add(new Card(card, this.suitName)); 

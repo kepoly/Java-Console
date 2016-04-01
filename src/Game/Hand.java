@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tester;
+package Game;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -16,38 +18,41 @@ import java.util.Iterator;
 public class Hand {
 
     public String name;
-    public Deque hand;
+    public List hand;
 
-    Hand(String inName, Deque inHand) {
+    Hand(String inName, List inHand) {
         this.name = inName;
         this.hand = inHand;
     }
 
-    public Deque returnHandArray(Boolean player) {
-        Iterator handz = this.hand.descendingIterator();
-        Deque handreturn = new ArrayDeque<>();
+    public List returnHandArray(Boolean player) {
+        Iterator handz = this.hand.iterator();
+        List handreturn = new ArrayList<>();
         int count = 0;
         if (player) {
-           while(handz.hasNext() && count == 0) {
+           while(handz.hasNext()) {
+               handreturn.add(handz.next());
+               count++;
+           }
+        } else {
+            while(handz.hasNext()) {
                handreturn.add(handz.next());
                count++;
            }
         }
-       
-        
            return handreturn;
     }
     
     /*
     *The tester page has the right way to handle this.
     */
-    public void takeCardFromDeck(Deque inDeck, int inAmount) {
+    public void takeCardFromDeck(List inDeck, int inAmount) {
         
-        Object returnDeck = inDeck.getFirst();
+        Object returnDeck = inDeck.get(0);
         
         for(int i = 0; i < inAmount; i++) {
             this.hand.add(returnDeck);
-            inDeck.removeFirst();
+            inDeck.remove(i);
         }
     }
 
