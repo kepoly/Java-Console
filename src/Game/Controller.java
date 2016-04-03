@@ -117,7 +117,7 @@ public class Controller {
         this.setFinaldeck(gamedeck);
     }
 
-    public double returnTotal(List hand) {
+    public double returnTotal(List hand, Boolean showTotal) {
 
         int handtotal = 0;
         int handaces = 0;
@@ -130,7 +130,9 @@ public class Controller {
             } else {
                 value = 10;
             }
-            
+            if(!showTotal && i == 1) {
+                value = 0;
+            }
             handtotal += value;
             if(this.checkCardAce(check)) {
                 handaces += 1;
@@ -186,8 +188,8 @@ public class Controller {
         System.out.println(oo.suit);
         System.out.println(oo.value);
         System.out.println("--------------");
-        System.out.println(control.returnTotal(playerHand));
-        System.out.println(control.returnTotal(dealerHand));
+        System.out.println(control.returnTotal(playerHand, Boolean.TRUE));
+        System.out.println(control.returnTotal(dealerHand, Boolean.FALSE));
     }
 
 }
