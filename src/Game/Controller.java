@@ -6,7 +6,6 @@
 package Game;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -190,6 +189,8 @@ public class Controller {
         System.out.println("--------------");
         System.out.println(control.returnTotal(playerHand, Boolean.TRUE));
         System.out.println(control.returnTotal(dealerHand, Boolean.FALSE));
+
+        
     }
 
 }
