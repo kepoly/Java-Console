@@ -68,7 +68,11 @@ public class Controller {
     }
 
     public void setPlayerBet(double playerBet) {
-        this.playerBet = playerBet;
+        if (playerBet > this.getBalance()) {
+            playerBet = this.getBalance();
+        } else {
+            this.playerBet = playerBet;
+        }
     }
 
     public double getPreviousWin() {
