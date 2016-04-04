@@ -5,11 +5,6 @@
  */
 package Game;
 
-import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,35 +16,25 @@ public class DeckTest {
     
     public DeckTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of getNewDeck method, of class Deck.
      */
     @Test
     public void testGetNewDeck() {
-        System.out.println("getNewDeck");
+        System.out.println("-- Testing Deck.getNewDeck() --");
+        System.out.println("----------------------------------------");
+
         Deck instance = new Deck();
-        List expResult = null;
-        List result = instance.getNewDeck();
+
+        int expResult = 52;
+        int result = instance.getNewDeck().size();
+        
+        System.out.println("Expected Deck size: " + expResult);
+        System.out.println("Result Deck size:   " + result);
+        System.out.println("---------------------------------------- \n\n");
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

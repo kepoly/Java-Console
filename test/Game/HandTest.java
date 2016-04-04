@@ -5,11 +5,10 @@
  */
 package Game;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,23 +18,24 @@ import static org.junit.Assert.*;
  */
 public class HandTest {
     
+    private List playerDummy;
+    private Hand player;
+    private List deck;
+    
     public HandTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
     }
     
     @Before
     public void setUp() {
+        playerDummy = new ArrayList<>();
+        player = new Hand("Player", playerDummy);
+        deck = new Deck().getNewDeck();
+        System.out.print("-- Testing ");
     }
     
     @After
     public void tearDown() {
+        System.out.println("----------------------------------------\n\n");
     }
 
     /**
@@ -43,14 +43,18 @@ public class HandTest {
      */
     @Test
     public void testReturnHandArray() {
-        System.out.println("returnHandArray");
-        Boolean player = null;
-        Hand instance = null;
-        List expResult = null;
-        List result = instance.returnHandArray(player);
+        System.out.println("Hand.returnHandArray() --");
+        System.out.println("----------------------------------------");
+        
+        int noOfCards = 7;
+        player.takeCardFromDeck(deck, noOfCards);
+        int expResult = noOfCards;
+        int result = player.hand.size();
+        
+        System.out.println("Expected hand size: " + expResult);
+        System.out.println("Result hand size:   " + result);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,13 +62,18 @@ public class HandTest {
      */
     @Test
     public void testTakeCardFromDeck() {
-        System.out.println("takeCardFromDeck");
-        List inDeck = null;
-        int inAmount = 0;
-        Hand instance = null;
-        instance.takeCardFromDeck(inDeck, inAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Hand.takeCardFromDeck() --");
+        System.out.println("----------------------------------------");
+        
+        int noOfCards = 15;
+        player.takeCardFromDeck(deck, noOfCards);
+        int expResult = 52 - noOfCards;
+        int result = deck.size();
+        
+        System.out.println("Expected deck size: " + expResult);
+        System.out.println("Result deck size:   " + result);
+        
+        assertEquals(expResult, result);
     }
 
     /**
@@ -72,13 +81,16 @@ public class HandTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Hand instance = null;
-        String expResult = "";
-        String result = instance.toString();
+        System.out.println("Hand.toString() --");
+        System.out.println("----------------------------------------");
+        
+        String expResult = "{\"name\":\"" + player.name + "\",\"hand\":\"" + player.hand + "\"}";
+        String result = player.toString();
+        
+        System.out.println("Expecting: " + expResult);
+        System.out.println("Result:    " + result);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
