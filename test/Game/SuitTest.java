@@ -7,9 +7,7 @@ package Game;
 
 import java.util.List;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,24 +16,21 @@ import static org.junit.Assert.*;
  * @author bryner
  */
 public class SuitTest {
+    public Suit suit;
     
     public SuitTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
+        suit = new Suit("Clubs");
+        System.out.print("-- Testing ");
     }
     
     @After
     public void tearDown() {
+        System.out.println("----------------------------------------\n\n");
+
     }
 
     /**
@@ -43,13 +38,16 @@ public class SuitTest {
      */
     @Test
     public void testBuildSuits() {
-        System.out.println("buildSuits");
-        Suit instance = null;
-        List expResult = null;
-        List result = instance.buildSuits();
+        System.out.println("Suit.getValue() --");
+        System.out.println("----------------------------------------");
+        
+        int expResult = 13;
+        int result = suit.buildSuits().size();
+        
+        System.out.println("Expecting # of cards: " + expResult);
+        System.out.println("Result # of cards:    " + result);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -57,13 +55,14 @@ public class SuitTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Suit instance = null;
-        String expResult = "";
-        String result = instance.toString();
+        System.out.println("Suit.toString --");
+        
+        String expResult = "{\"suitName\":\"" + suit.suitName + "\"}";
+        String result = suit.toString();
+        
+        System.out.println("Expecting: " + expResult);
+        System.out.println("Result:    " + result);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }
