@@ -23,6 +23,7 @@ public class HandTest {
     private List deck;
     
     public HandTest() {
+        
     }
     
     @Before

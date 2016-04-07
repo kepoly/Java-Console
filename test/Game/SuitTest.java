@@ -19,6 +19,7 @@ public class SuitTest {
     public Suit suit;
     
     public SuitTest() {
+        
     }
     
     @Before

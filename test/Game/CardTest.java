@@ -23,6 +23,7 @@ public class CardTest {
     public String suit;
     
     public CardTest() {
+        
     }
     
     @Before

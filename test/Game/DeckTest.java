@@ -15,7 +15,9 @@ import static org.junit.Assert.*;
 public class DeckTest {
     
     public DeckTest() {
+        
     }
+    
 
     /**
      * Test of getNewDeck method, of class Deck.

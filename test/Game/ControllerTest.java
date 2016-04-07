@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  *
  * @author bryner
  */
+
 public class ControllerTest {
     
     public ControllerTest() {
